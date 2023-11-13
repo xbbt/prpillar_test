@@ -34,4 +34,4 @@ jobs:
     - name: trustpilot_google
       run: |
         python parser.py 
-        echo "Success Almaty"
+        echo "Success google turstpilot"
