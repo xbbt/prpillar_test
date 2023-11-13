@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 import pygsheets
 
@@ -29,7 +30,8 @@ wk1.append_table(
         percentage_per_star[1],
         percentage_per_star[2],
         percentage_per_star[3],
-        percentage_per_star[4]
+        percentage_per_star[4],
+        datetime.now()
     ],
     overwrite=False
 )
