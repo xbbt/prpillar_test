@@ -31,7 +31,7 @@ wk1.append_table(
         percentage_per_star[2],
         percentage_per_star[3],
         percentage_per_star[4],
-        datetime.now()
+        datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     ],
     overwrite=False
 )
