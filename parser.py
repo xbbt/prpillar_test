@@ -20,7 +20,7 @@ for rating in star_ratings:
 
 gc = pygsheets.authorize(service_file='pacific-attic-387411-749e0dc3abf7.json')
 sh = gc.open('pr_pillar_test')
-wk1 = sh['google']
+wk1 = sh.worksheet_by_title('google')
 wk1.append_table(
     [
         int(total_reviews.replace(',', '')),
