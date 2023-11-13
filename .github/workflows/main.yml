@@ -1,0 +1,37 @@
+name: Transfer Cron Job
+
+on: workflow_dispatch # use for manual startup
+#on:
+ # schedule:
+  #  - cron: "10 08 * * *"
+
+env:
+  GOOGLE_SERVICE_ACCOUNT_TOKEN: ${{secrets.DASH_CROW}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Save Google creds
+      run: |
+        # mkdir ~/.config/gspread
+        # echo '{"key": "value"}' | jq . > output.json
+        echo '${{env.GOOGLE_SERVICE_ACCOUNT_TOKEN}}' | jq . > /home/runner/work/prpillar_test/prpillar_test/pacific-attic-387411-749e0dc3abf7.json
+        # ~/.config/gspread/service_account.json
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.9
+
+    - name: Install dependencies
+      run: |
+        python -m pip install -r requirements.txt
+        echo "Dependency successfully installed"
+
+    - name: trustpilot_google
+      run: |
+        python parser.py 
+        echo "Success google turstpilot"
