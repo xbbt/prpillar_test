@@ -25,7 +25,7 @@ wk1 = sh.worksheet_by_title('google')
 wk1.append_table(
     [
         int(total_reviews.replace(',', '')),
-        review_score,
+        float(review_score),
         percentage_per_star[0],
         percentage_per_star[1],
         percentage_per_star[2],
