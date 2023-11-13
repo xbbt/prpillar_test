@@ -1,9 +1,9 @@
 name: Transfer Cron Job
 
-# on: workflow_dispatch # use for manual startup
-on:
-  schedule:
-    - cron: "10 08 * * *"
+on: workflow_dispatch # use for manual startup
+#on:
+ # schedule:
+  #  - cron: "10 08 * * *"
 
 env:
   GOOGLE_SERVICE_ACCOUNT_TOKEN: ${{secrets.DASH_CROW}}
