@@ -22,22 +22,14 @@ for rating in star_ratings:
 gc = pygsheets.authorize(service_file='pacific-attic-387411-749e0dc3abf7.json')
 sh = gc.open('pr_pillar_test')
 wk1 = sh[0]
-wk1.set_dataframe(
-    pd.DataFrame(
-        {
-            'review_count': [int(total_reviews.replace(',', ''))],
-            'total_score': [review_score],
-            'one_star_percent': percentage_per_star[0],
-            'two_star_percent': percentage_per_star[1],
-            'three_star_percent': percentage_per_star[2],
-            'four_star_percent': percentage_per_star[3],
-            'five_star_percent': percentage_per_star[4],
-        }
-    ),
-    (1, 1),
-    copy_index=False,
-    copy_head=True,
-    extend=True,
-    fit=False,
-    escape_formulae=False
+wk1.append_table(
+    [
+        int(total_reviews.replace(',', '')),
+        review_score,
+        percentage_per_star[0],
+        percentage_per_star[1],
+        percentage_per_star[2],
+        percentage_per_star[3],
+        percentage_per_star[4]
+    ]
 )
