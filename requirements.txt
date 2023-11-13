@@ -1,3 +1,2 @@
 pygsheets
-pandas
 beautifulsoup4
